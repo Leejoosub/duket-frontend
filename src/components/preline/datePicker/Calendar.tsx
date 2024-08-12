@@ -1,3 +1,4 @@
+"use client";
 import { generateCalendarDatesJsx } from "@/utils/calendar";
 import { MouseEvent, MouseEventHandler, useMemo, useState } from "react";
 import ConfirmationRow from "./ConfirmationRow";
