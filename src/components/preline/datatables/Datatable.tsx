@@ -7,6 +7,7 @@ import DatatableFilter from "./DatatableFilter";
 import { isAgeBetween } from "@/utils/datatable";
 import DatatableNoResults from "./DatatableNoResults";
 import Pagination from "./Pagination";
+import { PdfExport } from "@/constants/pdfTypes";
 export type ColumnAction = "ColumnOrder" | "ColumnAction" | "ColumnFilter";
 const $ = require("jquery");
 
@@ -23,6 +24,7 @@ interface DatatableProps {
   uniqueId?: string;
 
   isScrollable?: boolean;
+  hasExport?: boolean;
 }
 
 export interface ColumnDetails {
@@ -51,6 +53,7 @@ function Datatable({
   isHeaderFixed,
   isScrollable,
   uniqueId,
+  hasExport,
 }: DatatableProps) {
   const [dataJsx, setDataJsx] = useState<JSX.Element[]>([]);
   const [searchInput, setSearchInput] = useState("");
@@ -62,6 +65,7 @@ function Datatable({
   const [nameFilter, setNameFilter] = useState("");
   const [sortBy, setSortBy] = useState<DatatableKeys | "">("");
   const [sortAscending, setSortAscending] = useState(true);
+  const [pdfContent, setPdfContent] = useState<PdfExport>();
 
   // order of the items + whether the column is hidden
   const [columnDetails, setColumnDetails] = useState<ColumnDetails[]>(
@@ -100,6 +104,8 @@ function Datatable({
     }
 
     const jsx = [];
+    // create the body content
+    const pdfRow = [];
 
     const lastItem = Math.min(
       dataClone.length,
@@ -128,6 +134,14 @@ function Datatable({
         continue;
       }
 
+      if (hasExport) {
+        // create a new row for the pdf export in the correct order
+        const newRow = [];
+        for (let i = 0; i < columnDetails.length; i++) {
+          newRow.push(dataClone[index][columnDetails[i].index]);
+        }
+        pdfRow.push(newRow);
+      }
       // Push jsx items that meet filter conditions, in the sorted order
       jsx.push(
         <DatatableRow
@@ -137,6 +151,28 @@ function Datatable({
           columnDetails={columnDetails}
         />
       );
+    }
+
+    // create the export object
+    if (hasExport) {
+      const headers: any = [];
+      // create headers
+      columnDetails.forEach((item, cdIndex) => {
+        headers.push(item.index);
+      });
+
+      setPdfContent({
+        content: [
+          { text: "Datatable", style: "header" },
+          {
+            style: "test",
+            table: {
+              body: [headers, ...pdfRow],
+              // body: [headers, pdfRow[0]],
+            },
+          },
+        ],
+      });
     }
 
     setDataJsx(jsx);
@@ -211,6 +247,8 @@ function Datatable({
           showHideColumn={hasHideColumns}
           columnDetails={columnDetails}
           setColumnDetails={setColumnDetails}
+          hasExport={hasExport}
+          pdfContent={pdfContent}
         />
       }
       <div className="overflow-y-auto">

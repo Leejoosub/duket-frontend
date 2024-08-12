@@ -1,4 +1,6 @@
+import { PdfExport } from "@/constants/pdfTypes";
 import { ColumnDetails } from "./Datatable";
+import DatatableExport from "./DatatableExport";
 const $ = require("jquery");
 
 interface DatatableFilterProps {
@@ -20,6 +22,8 @@ interface DatatableFilterProps {
   setColumnDetails?: (columnDetails: ColumnDetails[]) => void;
 
   isHeaderFixed?: boolean;
+  hasExport?: boolean;
+  pdfContent?: PdfExport;
 }
 function DatatableFilter({
   hasSearchInput,
@@ -32,6 +36,8 @@ function DatatableFilter({
   showHideColumn,
   columnDetails,
   setColumnDetails,
+  hasExport,
+  pdfContent,
 }: DatatableFilterProps) {
   return (
     <div className="flex">
@@ -193,6 +199,12 @@ function DatatableFilter({
               <></>
             )}
           </div>
+        ) : (
+          <></>
+        )}
+        {/* Export button */}
+        {hasExport && pdfContent ? (
+          <DatatableExport pdfContent={pdfContent} />
         ) : (
           <></>
         )}
