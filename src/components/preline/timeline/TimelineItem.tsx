@@ -36,6 +36,7 @@ function TimelineItem(props: TimelineItemProps) {
         <div className="w-16 text-end">
           <span className="text-xs text-gray-500 dark:text-neutral-400">
             {props.timestamp.toLocaleTimeString("en-US", {
+              timeZone: "America/New_York",
               hour: "numeric",
               minute: "numeric",
               hour12: true,
