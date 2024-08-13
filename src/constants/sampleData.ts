@@ -13,7 +13,7 @@ export const TIMELINE_SAMPLE: TimelineItemProps[] = [
     timestamp: new Date("2023-08-01 12:05:05"),
     title: `Release v5.2.0 quick bug fix 🐞`,
     username: `Alex Gregarov`,
-    avatar: `https://www.shareicon.net/data/2015/05/07/34701_man_400x400.png`,
+    avatar: `https://media.licdn.com/dms/image/C560BAQGkdIyn-3y7sQ/company-logo_200_200/0/1630589359123?e=2147483647&v=beta&t=BqV0-lhWzeJBh_pSt-MRniXz3EOp8zBH64IIKBc7bqA`,
   },
 
   {
@@ -21,7 +21,7 @@ export const TIMELINE_SAMPLE: TimelineItemProps[] = [
     title: `Marked "Install Charts" completed`,
     username: `James Collins`,
     details: `Finally! You can check it out here.`,
-    avatar: `https://www.shareicon.net/data/2015/05/07/34701_man_400x400.png`,
+    avatar: `https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80`,
   },
   {
     timestamp: new Date("2023-07-31 23:12:36"),
@@ -48,7 +48,7 @@ export const UNSORTED_TIMELINE_SAMPLE: TimelineItemProps[] = [
     title: `Created "Preline in React" task`,
     details: `Find more detailed instructions here.`,
     username: `James Collins`,
-    avatar: `https://www.shareicon.net/data/2015/05/07/34701_man_400x400.png`,
+    avatar: `https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80`,
     hoverable: true,
     hoverableLink: "https://www.google.com",
   },
@@ -58,7 +58,7 @@ export const UNSORTED_TIMELINE_SAMPLE: TimelineItemProps[] = [
     title: `Marked "Install Charts" completed`,
     username: `James Collins`,
     details: `Finally! You can check it out here.`,
-    avatar: `https://www.shareicon.net/data/2015/05/07/34701_man_400x400.png`,
+    avatar: `https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80`,
     hoverable: true,
     hoverableLink: "https://www.google.com",
   },

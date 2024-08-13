@@ -1,23 +1,36 @@
-import TimelineCollapsableExample from "@/components/examples/TimelineCollapsableExample";
-import TimelineExample from "@/components/examples/TimelineExample";
-import TimelineHoverableExample from "@/components/examples/TimelineHoverableExample";
+import DemoHeader from "@/components/DemoHeaders";
 import Timeline from "@/components/preline/timeline/Timeline";
-import {
-  TIMELINE_SAMPLE,
-  UNSORTED_TIMELINE_SAMPLE,
-} from "@/constants/sampleData";
+import { UNSORTED_TIMELINE_SAMPLE } from "@/constants/sampleData";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <main>
-      <p className="text-xl font-bold">UNSORTED TIMELINE</p>
+      <DemoHeader title="Basic Usage" />
+      <Timeline timeline={UNSORTED_TIMELINE_SAMPLE} collapsable={2} />
+
+      <DemoHeader title="Collapsable" />
+      <Timeline timeline={UNSORTED_TIMELINE_SAMPLE} collapsable={2} />
+
+      <DemoHeader title="Hoverable" />
+      <Timeline timeline={UNSORTED_TIMELINE_SAMPLE} hoverable={true} />
+
+      <DemoHeader title="With Time" />
+      <Timeline timeline={UNSORTED_TIMELINE_SAMPLE} showTime={true} />
+
+      <DemoHeader title="Icons and Avatars" />
       <Timeline
         timeline={UNSORTED_TIMELINE_SAMPLE}
-        collapsable={2}
-        hoverable={true}
         showTime={true}
         showIcon={true}
+      />
+
+      <DemoHeader title="Mix and Match" />
+      <Timeline
+        timeline={UNSORTED_TIMELINE_SAMPLE}
+        showTime={true}
+        showIcon={true}
+        hoverable={true}
       />
     </main>
   );

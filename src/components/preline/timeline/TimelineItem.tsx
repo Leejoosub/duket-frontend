@@ -80,7 +80,7 @@ function TimelineItem(props: TimelineItemProps) {
             {props.avatar ? (
               <img
                 className="shrink-0 size-4 rounded-full"
-                src="https://www.shareicon.net/data/2015/05/07/34701_man_400x400.png"
+                src={props.avatar}
                 alt="Avatar"
               />
             ) : (

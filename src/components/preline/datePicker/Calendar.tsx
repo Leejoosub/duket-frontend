@@ -65,7 +65,7 @@ function Calendar({
   );
 
   return (
-    <div className="p-3 space-y-0.5 w-fit">
+    <div className="p-3 space-y-0.5 w-fit rounded-lg border-2 border-black">
       {/* Days of the Week End */}
       <CalendarHeader
         calendarMonth={calendarMonth}

@@ -216,7 +216,7 @@ function DatatableHeader({
   return (
     <thead
       id={`${id}-header`}
-      className="border-b border-gray-200 bg-white dark:border-neutral-700"
+      className="border-b border-gray-200 bg-white dark:border-neutral-700 top-0"
     >
       <tr>
         {/* Checkbox header */}

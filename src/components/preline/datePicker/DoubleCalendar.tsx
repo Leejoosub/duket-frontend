@@ -74,7 +74,7 @@ function DoubleCalendar({
   );
 
   return (
-    <div className="flex flex-col w-fit">
+    <div className="flex flex-col w-fit rounded-lg border-2 border-black p-2">
       <div className="flex flex-col sm:flex-row">
         {/* CALENDAR 1 */}
         <div className="p-3 space-y-0.5 w-fit">

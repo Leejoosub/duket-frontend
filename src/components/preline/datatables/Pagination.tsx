@@ -24,6 +24,7 @@ function Pagination({
     for (let i = 1; i <= pageCount; i++) {
       jsx.push(
         <div
+          key={`pagination_page_${i}`}
           className={`flex justify-center items-center p-1 h-10 w-10 rounded-full hover:cursor-pointer ${
             page === i - 1 ? "bg-gray-100" : ""
           }`}

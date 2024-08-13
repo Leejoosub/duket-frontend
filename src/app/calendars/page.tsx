@@ -1,16 +1,14 @@
 "use client";
 
+import DemoHeader from "@/components/DemoHeaders";
 import Calendar from "@/components/preline/datePicker/Calendar";
 import DoubleCalendar from "@/components/preline/datePicker/DoubleCalendar";
 export default function page() {
   return (
     <main>
-      <p className="font-bold text-3xl text-red-400"> ===== Basic ===== </p>
+      <DemoHeader title="Basic" />
       <Calendar />
-      <p className="font-bold text-3xl text-red-400">
-        {" "}
-        ===== Single Preset ranges ====={" "}
-      </p>
+      <DemoHeader title="Single Preset ranges" />
       <Calendar
         isRange={true}
         date1={new Date(`2024-08-3`)}
@@ -18,10 +16,7 @@ export default function page() {
         isConfirmationRow={true}
       />
 
-      <p className="font-bold text-3xl text-red-400">
-        {" "}
-        ===== Single Time Input ====={" "}
-      </p>
+      <DemoHeader title="Single Time Input" />
       <Calendar
         isRange={true}
         date1={new Date(`2024-08-3`)}
@@ -30,9 +25,7 @@ export default function page() {
         isConfirmationRow={true}
       />
 
-      <p className="font-bold text-3xl text-red-400">
-        ===== Double Preset ranges =====
-      </p>
+      <DemoHeader title="Double Preset ranges" />
       <DoubleCalendar
         isRange={true}
         date1={new Date(`2024-08-3`)}
@@ -40,9 +33,7 @@ export default function page() {
         isConfirmationRow={true}
       />
 
-      <p className="font-bold text-3xl text-red-400">
-        ===== Double date input =====
-      </p>
+      <DemoHeader title="Double date input" />
       <DoubleCalendar
         isRange={true}
         date1={new Date(`2024-08-3`)}
@@ -52,17 +43,24 @@ export default function page() {
         showConfirmationRange={true}
       />
 
-      {/* <p className="font-bold text-3xl text-red-400">
-        ===== Double Preset ranges =====
-      </p>
+      <DemoHeader title="Mix and Match" />
       <DoubleCalendar
         isRange={true}
         date1={new Date(`2024-08-3`)}
         date2={new Date(`2024-09-20`)}
         isConfirmationRow={true}
         showConfirmationRange={true}
+        // showConfirmationRowInput={true}
+      />
+      <DemoHeader title="Mix and Match" />
+      <DoubleCalendar
+        isRange={true}
+        date1={new Date(`2024-08-3`)}
+        date2={new Date(`2024-09-20`)}
+        isConfirmationRow={true}
+        // showConfirmationRange={true}
         showConfirmationRowInput={true}
-      /> */}
+      />
     </main>
   );
 }

@@ -5,22 +5,8 @@ import { SAMPLE_DATATABLE_DATA } from "@/constants/sampleData";
 function page() {
   return (
     <div>
-      <DemoHeader title="Export" />
-      <Datatable
-        data={SAMPLE_DATATABLE_DATA}
-        checkbox={true}
-        hasInputFilter={true}
-        columnAction={"ColumnOrder"}
-        hasExport={true}
-      />
-      <DemoHeader title="Column Actions" />
-      <Datatable
-        data={SAMPLE_DATATABLE_DATA}
-        checkbox={true}
-        columnAction={"ColumnAction"}
-        hasMaxRowCount={true}
-        hasInputFilter={true}
-      />
+      <DemoHeader title="Basic" />
+      <Datatable data={SAMPLE_DATATABLE_DATA} columnAction={"ColumnOrder"} />
 
       <DemoHeader title="Fixed Header" />
       <Datatable
@@ -31,14 +17,7 @@ function page() {
         uniqueId="fixed_header_table"
       />
 
-      <DemoHeader title="Basic" />
-      <Datatable
-        data={SAMPLE_DATATABLE_DATA}
-        checkbox={true}
-        columnAction={"ColumnOrder"}
-      />
-
-      <DemoHeader title="Scrollable Table (wrapped in div with max height)" />
+      <DemoHeader title="Scrollable Table " />
       {/* Forcing small parent to demo scrollable  */}
       <div className="max-h-[500px] flex">
         <Datatable
@@ -48,6 +27,13 @@ function page() {
           isScrollable={true}
         />
       </div>
+
+      <DemoHeader title="Selection" />
+      <Datatable
+        data={SAMPLE_DATATABLE_DATA}
+        columnAction={"ColumnOrder"}
+        checkbox={true}
+      />
 
       <DemoHeader title="Search Input" />
       <Datatable
@@ -80,6 +66,23 @@ function page() {
         hasInputFilter={true}
         columnAction={"ColumnOrder"}
         hasHideColumns={true}
+      />
+
+      <DemoHeader title="Column Action" />
+      <Datatable
+        data={SAMPLE_DATATABLE_DATA}
+        checkbox={true}
+        columnAction={"ColumnAction"}
+        hasInputFilter={true}
+      />
+
+      <DemoHeader title="Export" />
+      <Datatable
+        data={SAMPLE_DATATABLE_DATA}
+        checkbox={true}
+        hasInputFilter={true}
+        columnAction={"ColumnOrder"}
+        hasExport={true}
       />
     </div>
   );

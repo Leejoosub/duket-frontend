@@ -116,11 +116,15 @@ function Datatable({
       if (
         // Search input filter
         (searchInput !== "" &&
-          !dataClone[index].address.includes(searchInput) &&
-          !dataClone[index].name.includes(searchInput) &&
+          !dataClone[index].address
+            .toLowerCase()
+            .includes(searchInput.toLowerCase()) &&
+          !dataClone[index].name
+            .toLowerCase()
+            .includes(searchInput.toLowerCase()) &&
           !dataClone[index].age.toString().includes(searchInput)) ||
         // age filter
-        (hasAgeFilter &&
+        ((hasAgeFilter || columnAction === "ColumnFilter") &&
           !isAgeBetween(ageFilterMin, ageFilterMax, dataClone[index].age)) ||
         // column address filter
         (addressFilter !== "" &&
@@ -194,21 +198,19 @@ function Datatable({
   useEffect(() => {
     // only create the event handler if needed
     if (isHeaderFixed) {
-      const parentDiv = document.getElementById(uniqueId ?? "");
-      const header = document.getElementById(`${uniqueId}-header`);
       const headerPlaceholder = document.getElementById(
         `${uniqueId}_placeholder`
       );
-
-      let topY = 0;
-      let bottomY = 0;
-      if (parentDiv) {
-        const rect = parentDiv.getBoundingClientRect();
-        topY = rect.top + window.scrollY;
-        bottomY = topY + parentDiv.scrollHeight + window.scrollY;
-      }
-
       const handleScroll = () => {
+        const parentDiv = document.getElementById(uniqueId ?? "");
+        let topY = 0;
+        let bottomY = 0;
+        if (parentDiv) {
+          const rect = parentDiv.getBoundingClientRect();
+          topY = rect.top + window.scrollY;
+          bottomY = topY + parentDiv.scrollHeight + window.scrollY;
+        }
+        const header = document.getElementById(`${uniqueId}-header`);
         bottomY = topY + (parentDiv?.scrollHeight ?? 0);
         // if within the bounds of the component, fix header
         if (parentDiv && header && topY < scrollY && bottomY > scrollY) {
@@ -254,10 +256,7 @@ function Datatable({
       <div className="overflow-y-auto">
         <div className="inline-block align-middle">
           <div className="overflow-hidden">
-            <div
-              id={`${uniqueId}_placeholder`}
-              className="h-40px w-full bg-red-300 "
-            ></div>
+            <div id={`${uniqueId}_placeholder`} className="h-40px w-full"></div>
             <table id={uniqueId} className="min-w-fit">
               <DatatableHeader
                 checkbox={checkbox}
